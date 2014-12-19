@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: BfparsecontrollerCtrl', function () {
+describe('Controller: InputBatchCtrl', function () {
 
   // load the controller's module
   beforeEach(module('batchUtilApp'));
 
-  var BfparsecontrollerCtrl,
+  var InputBatchCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    BfparsecontrollerCtrl = $controller('BfparsecontrollerCtrl', {
+    InputBatchCtrl = $controller('InputBatchCtrl', {
       $scope: scope
     });
   }));

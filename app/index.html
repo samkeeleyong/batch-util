@@ -26,9 +26,8 @@
     <div class="container">
       <div class="header" ng-controller="HeaderCtrl">
         <ul class="nav nav-pills pull-right">
-          <li ng-class = "{active:isActive('/')}"><a ng-href="#">Home</a></li>
-          <li ng-class = "{active:isActive('/about')}"><a ng-href="#/about">About</a></li>
-          <li ng-class = "{active:isActive('/parse_batch_file')}"><a ng-href="#/parse_batch_file">Parse Batch File</a></li>
+          <li ng-class = "{active:isActive('/input')}"><a ng-href="#/input">Input</a></li>
+          <li ng-class = "{active:isActive('/parse'), disabled:isActive('/input')}"><a>View</a></li>
         </ul>
         <h3 class="text-muted">Batch Utilities</h3>
       </div>
@@ -71,16 +70,16 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
     <script src="bower_components/dropzone/downloads/dropzone.min.js"></script>
-
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/bfparsecontroller.js"></script>
-        <script src="scripts/controllers/header.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/inputbatchcontroller.js"></script>
+    <script src="scripts/controllers/header.js"></script>
+    <script src="scripts/controllers/parsebatchcontroller.js"></script>
+    <script src="scripts/services/batchdata.js"></script>        
+    <!-- endbuild -->
 </body>
 </html>

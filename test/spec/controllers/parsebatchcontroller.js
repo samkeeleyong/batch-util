@@ -1,22 +1,25 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: ParseBatchCtrl', function () {
 
   // load the controller's module
   beforeEach(module('batchUtilApp'));
 
-  var MainCtrl,
+  var ParseBatchCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+    ParseBatchCtrl = $controller('ParseBatchCtrl', {
       $scope: scope
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  // search_detailBy_recordnum()
+  it("should return 1000 details", function(){
+    
+    // expect(scope.search_detailBy_recordnum(1000)).toEqual();
   });
+
 });

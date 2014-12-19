@@ -15,21 +15,18 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+      .when("/input",{
+        templateUrl: 'views/input.html',
+        controller: 'InputBatchCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .when("/parse_batch_file",{
-        templateUrl: 'views/parse_batch_file.html',
-        controller: 'BfparsecontrollerCtrl'
+      .when("/parse",{
+        templateUrl: 'views/parse.html',
+        controller: 'ParseBatchCtrl'
       })
       .otherwise({
         redirectTo: '/'

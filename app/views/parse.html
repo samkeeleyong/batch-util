@@ -1,0 +1,117 @@
+<div class="row row-offcanvas row-offcanvas-left" ng-init = "init()">    
+
+    <!-- SideBar -->
+    <div class = "col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role = "navigation">
+        <accordion close-others="oneAtATime">
+            <accordion-group heading="Header" is-open = "accordion_status.header_open">
+                <table id = "details_table" class = "table table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <td><b>R Identifer</b></td>
+                            <td><b>R Number</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-click = "
+                                show_record(header); 
+                                toggle.header = !toggle.header;
+                                toggle.trailer = false"
+                            ng-class = "{
+                                active:toggle.header
+                            }">
+
+                            <td>{{header[0]}}</td>
+                            <td>{{header[1]}}</td>
+                        </tr>
+                    </tbody>
+                </table>     
+            </accordion-group>
+            
+            <accordion-group heading = "Details" is-open="accordion_status.details_open">
+                <table id = "details_table" class = "table table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <td><b>R Identifer</b></td>
+                            <td><b>R Number</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-click = "
+                                show_record(option); 
+                                toggle.detail.item = $index;
+                                toggle.header = false;
+                                toggle.trailer = false;"
+                            ng-class = "{
+                                active:toggle.detail.item == $index &&
+                                toggle.header == false &&
+                                toggle.trailer == false
+                                }" 
+                            ng-repeat = "
+                                option in details track by $index">
+                            <!-- option[0] is the Record Identifer (i.e. 1000) -->
+                            <td>{{option[0]}}</td>
+                            <!-- option[1] is the Record Number (i.e. 2). This is for uniquenes -->
+                            <td>{{option[1]}}</td>
+                        </tr>
+                    </tbody>
+                </table>    
+            </accordion-group>
+            <accordion-group heading="Trailer" is-open="accordion_status.trailer_open">
+                <table id = "details_table" class = "table table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <td><b>R Identifer</b></td>
+                            <td><b>R Number</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-click = "
+                                show_record(trailer); 
+                                toggle.trailer = !toggle.trailer;
+                                toggle.header = false";
+                            ng-class = "{
+                                active:toggle.trailer
+                            }">
+                            <td>{{trailer[0]}}</td>
+                            <td>{{trailer[1]}}</td>
+                        </tr>
+                    </tbody>
+                </table>     
+            </accordion-group>
+        </accordion>   
+    </div>
+
+
+    <!-- Main Area -->
+    <div class="col-xs-12 col-sm-9">
+        <div>
+            <div class="input-group input-group-lg">
+                <input type = "text" id = "searchBar" class = "form-control" placeholder = "Search your heart. You know this to be true." ng-model = "search">
+                <span class="input-group-addon">?</span>
+            </div>
+        </div>
+
+        <br/>
+
+        <div>
+            <table id = "datatable" class = "table table-condensed table-striped table-hover">
+                <thead>
+                    <tr>
+                        <td class = "info">#</td> 
+                        <td class = "info">Attribute</td>
+                        <td class = "info">Value</td>           
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat = "property in record | filter:search"> 
+                        <td>{{$index + 1}}</td>
+                        <td>{{property.attribute}}</td>
+                        <td>{{property.value}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
