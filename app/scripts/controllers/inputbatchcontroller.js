@@ -10,11 +10,20 @@
  */
 
 angular.module('batchUtilApp')
-  .controller('InputBatchCtrl', function ($scope, $location, BatchData) {
+  .controller('InputBatchCtrl', function ($scope, $location, $firebase, BatchData) {
 	$scope.data = {};
 	$scope.data_values = [];
 	$scope.data_type = "";
 	$scope.data_attributes = BatchData.data_attributes;
+
+
+	//experimental
+	//
+	var ref = new Firebase("https://batch-util.firebaseio.com/MCSP-CREG/types");  
+	var sync = $firebase(ref);
+    $scope.data_types = sync.$asObject();
+	//
+	//experimental
 
 	$scope.parse_batchfile = function(){
 		var text = $('#mytextarea').val();
