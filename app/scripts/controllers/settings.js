@@ -8,12 +8,18 @@
  * Controller of the batchUtilApp
  */
 angular.module('batchUtilApp')
-  .controller('SettingsCtrl', ["$scope", "$firebase",
-	function ($scope, $firebase) {
-		var ref = new Firebase("https://batch-util.firebaseio.com/MCSP-CREG");
-	  
-		var sync = $firebase(ref);
+  .controller('SettingsCtrl',['$scope', '$firebase', 'FIREBASE_URL',
+	function ($scope, $firebase, FIREBASE_URL) {
 
-	    $scope.list = sync.$asObject();
-	}
-  ]);
+		var obj = $firebase(new Firebase(FIREBASE_URL)).$asObject();
+	
+		obj.$loaded().then(function(){
+			//console.log("Loaded record:" + obj.$id, obj.egypt);
+			console.log(obj);
+
+			angular.forEach(obj, function(value, key){
+				console.log(value);
+			});
+		});
+	}]
+  );

@@ -11,8 +11,8 @@ describe('Service: BatchData', function () {
     BatchData = _BatchData_;
   }));
 
-  it('should do something', function () {
+  /*it('should do something', function () {
     expect(!!BatchData).toBe(true);
-  });
+  });*/
 
 });

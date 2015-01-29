@@ -85,13 +85,16 @@
     <!-- Main Area -->
     <div class="col-xs-12 col-sm-9">
         <div>
-            <div class="input-group input-group-lg">
+            <!--<div class="input-group input-group-lg">
                 <input type = "text" id = "searchBar" class = "form-control" placeholder = "Search your heart. You know this to be true." ng-model = "search">
                 <span class="input-group-addon">?</span>
-            </div>
+			</div> -->
+			
+			<md-input-container flex>
+				<label> Search field/s </label>
+				<input ng-model = "search"></input>
+			</md-input-container>
         </div>
-
-        <br/>
 
         <div>
             <table id = "datatable" class = "table table-condensed table-striped table-hover">

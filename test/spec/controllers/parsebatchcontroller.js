@@ -16,10 +16,5 @@ describe('Controller: ParseBatchCtrl', function () {
     });
   }));
 
-  // search_detailBy_recordnum()
-  it("should return 1000 details", function(){
-    
-    // expect(scope.search_detailBy_recordnum(1000)).toEqual();
-  });
 
 });

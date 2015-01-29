@@ -4,6 +4,10 @@ body {
   padding-bottom: 20px;
 }
 
+#companylogo{
+	float:left;
+	margin-right: 20px;
+}
 
 #dropzone{
   border: 2px dashed #333333;
@@ -19,6 +23,10 @@ body {
   opacity: 1.0;
 }
 
+.headerbuttons{
+	color: #333333;
+	text-decoration:none !important;
+}
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,

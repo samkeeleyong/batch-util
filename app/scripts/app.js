@@ -17,10 +17,14 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.bootstrap',
-	'firebase'
+	'firebase',
+	'ngMaterial'
   ])
   .config(function ($routeProvider) {
     $routeProvider
+	  .when("/",{
+		redirectTo:"/input"
+	  })
       .when("/input",{
         templateUrl: 'views/input.html',
         controller: 'InputBatchCtrl'
@@ -36,5 +40,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .constant("FIREBASE_URL","https://batch-util.firebaseio.com/");
 

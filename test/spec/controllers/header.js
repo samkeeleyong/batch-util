@@ -5,18 +5,32 @@ describe('Controller: HeaderCtrl', function () {
   // load the controller's module
   beforeEach(module('batchUtilApp'));
 
-  var HeaderCtrl,
-    scope;
+  var scope, location, HeaderController;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function($rootScope, $controller, $location){
     scope = $rootScope.$new();
-    HeaderCtrl = $controller('HeaderCtrl', {
-      $scope: scope
-    });
+	location = $location;
+	HeaderController = $controller("HeaderCtrl",{
+		$scope: scope,
+		$location: location
+	});
+
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+
+  //@test_function $scope.isActive() 
+  it('Input view should be active when the path is /input', function (){
+	location.path('/input');
+	expect(location.path()).toBe("/input");
+	expect(scope.isActive("/input")).toBe(true);
   });
+
+  //@test_function $scope.isActive()
+  it('Parse view should be active when the path is /input', function(){
+	location.path('/parse');
+	expect(location.path()).toBe("/parse");
+	expect(scope.isActive("/parse")).toBe(true);
+  });
+  
 });

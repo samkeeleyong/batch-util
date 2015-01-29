@@ -6,17 +6,35 @@ describe('Controller: InputBatchCtrl', function () {
   beforeEach(module('batchUtilApp'));
 
   var InputBatchCtrl,
-    scope;
+    $scope,
+	location;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    InputBatchCtrl = $controller('InputBatchCtrl', {
-      $scope: scope
-    });
-  }));
+  beforeEach(
+	  
+	inject(function ($controller, $rootScope, BatchData, $location) {
+		$scope = $rootScope.$new();
+		location = $location;
+	    InputBatchCtrl = $controller('InputBatchCtrl', {
+	      $scope: $scope,
+		  $location: location,
+		  BatchData: BatchData 
+	    });
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
-  });
+		$scope.market = [
+			{
+				name: "Dummy 2",
+				types: []
+			},
+			{
+				name: "Dummy 1",
+				types: []
+			}  
+		];
+  })
+  );
+ /* it("Should parse the batchfile correctly", function(){
+	  $scope.parse_batchfile();
+	  expect(location.path()).toBe("/parse");
+  }); */
 });

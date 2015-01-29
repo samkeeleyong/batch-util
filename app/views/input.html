@@ -1,5 +1,12 @@
 <div>
 	<form role="form">
+
+		
+		<md-input-container>
+			<label>Copy and paste the whole Batch file</label>
+			<textarea ng-model="textarea_text" md-maxlength="10000"></textarea>
+		</md-input-container>
+		<!--
 		<div class="form-group">
 		    <label for="">Copy and Paste the whole file:</label> <br/>
 			<textarea class="form-control" id="mytextarea" rows = "10">0000|1|20141015072400|1|FILE01-Initial Reg|MCW|MasterCard Worldwide|||ZENNGA01|Zenith Bank PLC|0001|2014101500101|20141115235959|C|CLNTZEN001|
@@ -8,16 +15,30 @@
 9999|4|4</textarea>
 			<p class="help-block">In the future, there will be a drag and drop feature. For now, please copy the whole file into this text area. </p>
 		</div>
+-->
+		<!--<button ng-click = "parse_batchfile()" class = "btn btn-default">Submit</button> -->
 
-		<button ng-click = "parse_batchfile()" class = "btn btn-default">Submit</button>
+		<md-button ng-click = "parse_batchfile()"  class = "md-raised md-primary">
+			Submit
+		</md-button>
 	</form>
 
 	<br/>
-	<select class = "selectpicker">
-		<option ng-repeat = "data_type in data_types">
-			{{data_type}}
-		</option>
-	</select>
+
+
+	<div>
+		<div class = "btn-group btn-group-lg" role = "group">
+			<button type = "button" class = "btn btn-default" 
+					ng-repeat = "market in markets" ng-click = "select_market(market.name)">
+				{{market.name}}
+			</button>
+
+		</div>
+
+		<br/> <br/>
+
+	</div>
+
 	<br/>
 	<br/>
 	<div class="well well-lg">
@@ -26,10 +47,14 @@
 			<li>Dropzone hasn't been implemented</li>
 			<li>Code not pretty enough</li>
 			<li>No Unit Tests</li>
-			<li>Only supports CREG 1000, 1001 and MREG 2000, Header and Trailer (MCSP)</li>
+			<li>Only supports CREG 1000, 1001, Header and Trailer (MCSP)</li>
 			<li>No Validations</li>
 			<li>Data is lost on page refresh</li>
 			<li>No Data management?</li>
+			<li>This is just a pet project. Nobody told me to do this. I'm not doing anything. Please help me. </li>
+			<li>I'm an SE dev who isn't dev-ing </li>
+			<li>They make me do BA stuff</li>
+			<li>I dev-ed this so that my brain won't stop working. :D</li>
 		</ul>
 	</div>
 	

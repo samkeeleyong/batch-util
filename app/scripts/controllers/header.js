@@ -8,8 +8,8 @@
  * Controller of the batchUtilApp
  */
 angular.module('batchUtilApp')
-  .controller('HeaderCtrl', function ($scope, $location) {
-  		$scope.isActive = function(route){
-  			return route === $location.path();
-  		}
+  .controller('HeaderCtrl', function ($scope, $location ) {
+		$scope.isActive = function(route){
+			return route === $location.path();
+		}
   });
